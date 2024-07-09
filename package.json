@@ -1,0 +1,25 @@
+{
+  "name": "emoji-describer",
+  "version": "1.0.0",
+  "description": "An npm package to convert emojis into textual description",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sujalforselfuse/emoji-describer.git"
+  },
+  "keywords": [
+    "npm",
+    "emoji-to-text",
+    "emoji-meaning"
+  ],
+  "author": "sujal chandrakar",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sujalforselfuse/emoji-describer/issues"
+  },
+  "homepage": "https://github.com/sujalforselfuse/emoji-describer#readme"
+}
