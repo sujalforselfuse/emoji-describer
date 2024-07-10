@@ -1,6 +1,6 @@
 {
   "name": "emoji-describer",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "An npm package to convert emojis into textual description",
   "main": "index.js",
   "type": "module",

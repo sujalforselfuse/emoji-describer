@@ -247,12 +247,25 @@ const emojiDescriptions = {
     '🎣': 'fishing pole'
 };
 
+const skinToneModifiers = [
+    '\u{1F3FB}', // Light skin tone
+    '\u{1F3FC}', // Medium-light skin tone
+    '\u{1F3FD}', // Medium skin tone
+    '\u{1F3FE}', // Medium-dark skin tone
+    '\u{1F3FF}', // Dark skin tone
+];
 
-export function getEmojiMeaning(emoji) {    
+function normalizeEmoji(emoji) {
+    return skinToneModifiers.reduce((baseEmoji, modifier) => {
+        return baseEmoji.replace(modifier, '');
+    }, emoji);
+}
+
+ export function getEmojiMeaning(emoji) { 
+    emoji = normalizeEmoji(emoji);
     if (emojiDescriptions.hasOwnProperty(emoji)) {
         return emojiDescriptions[emoji];
     } else {
         return 'Meaning not found for this emoji.';
     }
 }
-
