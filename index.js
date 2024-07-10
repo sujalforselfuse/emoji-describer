@@ -269,3 +269,9 @@ function normalizeEmoji(emoji) {
         return 'Meaning not found for this emoji.';
     }
 }
+
+console.log(getEmojiMeaning("💎"))
+console.log(getEmojiMeaning("😆"))
+console.log(getEmojiMeaning("✌️"))
+console.log(getEmojiMeaning("👍"))
+console.log(getEmojiMeaning("👍🏼"))

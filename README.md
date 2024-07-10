@@ -23,6 +23,15 @@ import { getEmojiMeaning } from "emoji-describer";
 console.log(getEmojiMeaning("💎"))
 console.log(getEmojiMeaning("😆"))
 console.log(getEmojiMeaning("✌️"))
+console.log(getEmojiMeaning("👍"))
+console.log(getEmojiMeaning("👍🏼")) //works for all skin tones
+
+//Outputs
+//gem stone
+//grinning squinting face
+//victory hand
+//thumbs up
+//thumbs up
 ```
 
 
