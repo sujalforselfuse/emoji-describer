@@ -1,8 +1,8 @@
 # Welcome !!
 ## Know The Meanings Of Emojis
 
-[![NPM version](https://img.shields.io/npm/v/emoji-description-converter.svg?style=flat)](https://www.npmjs.com/package/emoji-describer)
-[![NPM downloads](https://img.shields.io/npm/dm/emoji-description-converter.svg?style=flat)](https://www.npmjs.com/package/emoji-description-converter)
+[![NPM version](https://img.shields.io/npm/v/emoji-describer.svg?style=flat)](https://www.npmjs.com/package/emoji-describer)
+[![NPM downloads](https://img.shields.io/npm/dm/emoji-describer.svg?style=flat)](https://www.npmjs.com/package/emoji-describer)
 
 A simple Node.js package to convert emojis to their textual descriptions.
 
