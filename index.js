@@ -326,11 +326,6 @@ export function extractEmojis(sentence) {
     return replacedSentence;
 } */ 
 
-console.log(getEmojiMeaning("❤️"))
-console.log(hasEmoji("❤️"))
-console.log(hasEmoji("❤️Nature is very beautiful💚🩵"))
-console.log(extractEmojis("Lorem 🦁🐹 ipsum 🐓🐳 🤗 lorem 🤣🤲🙌"))
-
 
 
 
