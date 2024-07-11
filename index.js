@@ -1,4 +1,6 @@
-const emojiDescriptions = {
+import data from './emoji_pretty.js';
+
+/* const emojiDescriptions = {
     '😀': 'grinning face',
     '😃': 'grinning face with big eyes',
     '😄': 'grinning face with smiling eyes',
@@ -255,23 +257,84 @@ const skinToneModifiers = [
     '\u{1F3FF}', // Dark skin tone
 ];
 
+
 function normalizeEmoji(emoji) {
     return skinToneModifiers.reduce((baseEmoji, modifier) => {
         return baseEmoji.replace(modifier, '');
     }, emoji);
-}
+} */
 
- export function getEmojiMeaning(emoji) { 
+/* export function getEmojiMeaning(emoji) {
     emoji = normalizeEmoji(emoji);
     if (emojiDescriptions.hasOwnProperty(emoji)) {
         return emojiDescriptions[emoji];
     } else {
         return 'Meaning not found for this emoji.';
     }
+} */
+
+export function getEmojiMeaning(emoji) {
+    const emojiHex = emoji.codePointAt(0).toString(16).toUpperCase(); // Get hexadecimal code of emoji character    
+    const emojiDataEntry = data.find(e => e.unified === emojiHex || e.non_qualified === emojiHex);
+    return emojiDataEntry ? emojiDataEntry.name : "Emoji not found"; // Return the emoji's name or a default message
 }
 
-console.log(getEmojiMeaning("💎"))
-console.log(getEmojiMeaning("😆"))
-console.log(getEmojiMeaning("✌️"))
-console.log(getEmojiMeaning("👍"))
-console.log(getEmojiMeaning("👍🏼"))
+export function hasEmoji(sentence) {
+    for (let i = 0; i < sentence.length; i++) {
+        const char = sentence.charAt(i);
+        if (char >= '\u{1F300}' && char <= '\u{1F9Ff}') { // Check if the character is in the emoji range
+            return true;
+        }
+        // Check if the character matches any emoji in emojiData
+        const emojiHex = char.codePointAt(0).toString(16).toUpperCase(); // Get hexadecimal code of emoji character
+        const emojiExists = data.some(e => e.unified === emojiHex || e.non_qualified === emojiHex);
+        if (emojiExists) {
+            return true;
+        }
+    }
+    return false;
+}
+
+export function extractEmojis(sentence) {
+    const emojiRegex = /[\u{1F300}-\u{1F9FF}\u{1F600}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/ug;
+    // Unicode ranges cover most common emojis, adjust as needed
+
+    // Use match to find all emoji characters in the sentence
+    const emojis = sentence.match(emojiRegex) || [];
+    return emojis;
+}
+
+/* export function removeEmojis(sentence) {
+    // Regular expression to match emoji characters
+    const emojiRegex = /[\u{1F300}-\u{1F9FF}\u{1F600}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/ug;
+    // Unicode ranges cover most common emojis, adjust as needed
+
+    // Use replace to remove all emoji characters from the sentence
+    const cleanSentence = sentence.replace(emojiRegex, '');
+    return cleanSentence;
+} */
+ /*  export function replaceEmojisWithMeanings(sentence) {
+    // Regular expression to match emoji characters
+    const emojiRegex = /([\u{1F300}-\u{1F9FF}\u{1F600}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}])([\u{FE0F}]?[\u{20E3}]?)/gu;
+    
+    // Replace emojis with their meanings using emojiMap
+    const replacedSentence = sentence.replace(emojiRegex, (match, p1, p2) => {
+        const emojiKey = `${p1.codePointAt(0).toString(16).toUpperCase()}${p2 || ''}`;
+        return data[emojiKey] || match;
+    });
+
+    return replacedSentence;
+} */ 
+
+console.log(getEmojiMeaning("❤️"))
+console.log(hasEmoji("❤️"))
+console.log(hasEmoji("❤️Nature is very beautiful💚🩵"))
+console.log(extractEmojis("Lorem 🦁🐹 ipsum 🐓🐳 🤗 lorem 🤣🤲🙌"))
+
+
+
+
+
+
+
+

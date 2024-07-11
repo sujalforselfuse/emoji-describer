@@ -19,19 +19,23 @@ npm i emoji-describer
 
 ```javascript
 import { getEmojiMeaning } from "emoji-describer";
+import { hasEmoji } from "emoji-describer";
+import { extractEmojis } from "emoji-describer";
 
 console.log(getEmojiMeaning("💎"))
-console.log(getEmojiMeaning("😆"))
-console.log(getEmojiMeaning("✌️"))
 console.log(getEmojiMeaning("👍"))
 console.log(getEmojiMeaning("👍🏼")) //works for all skin tones
 
+console.log(hasEmoji("❤️Nature is very beautiful💚🩵"))
+
+console.log(extractEmojis("Lorem 🦁🐹 ipsum 🐓🐳 🤗 lorem 🤣🤲🙌"))
+
 //Outputs
 //gem stone
-//grinning squinting face
-//victory hand
 //thumbs up
 //thumbs up
+//true
+//[ '🦁', '🐹', '🐓','🐳', '🤗', '🤣','🤲', '🙌']
 ```
 
 
