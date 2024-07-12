@@ -273,8 +273,11 @@ function normalizeEmoji(emoji) {
     }
 } */
 
+   
+
 export function getEmojiMeaning(emoji) {
-    const emojiHex = emoji.codePointAt(0).toString(16).toUpperCase(); // Get hexadecimal code of emoji character    
+    const emojiHex = emoji.codePointAt(0).toString(16).toUpperCase(); 
+    /* console.log(emojiHex); */// Get hexadecimal code of emoji character    
     const emojiDataEntry = data.find(e => e.unified === emojiHex || e.non_qualified === emojiHex);
     return emojiDataEntry ? emojiDataEntry.name : "Emoji not found"; // Return the emoji's name or a default message
 }
@@ -304,27 +307,74 @@ export function extractEmojis(sentence) {
     return emojis;
 }
 
-/* export function removeEmojis(sentence) {
-    // Regular expression to match emoji characters
-    const emojiRegex = /[\u{1F300}-\u{1F9FF}\u{1F600}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/ug;
-    // Unicode ranges cover most common emojis, adjust as needed
 
-    // Use replace to remove all emoji characters from the sentence
-    const cleanSentence = sentence.replace(emojiRegex, '');
-    return cleanSentence;
-} */
- /*  export function replaceEmojisWithMeanings(sentence) {
-    // Regular expression to match emoji characters
-    const emojiRegex = /([\u{1F300}-\u{1F9FF}\u{1F600}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}])([\u{FE0F}]?[\u{20E3}]?)/gu;
-    
-    // Replace emojis with their meanings using emojiMap
-    const replacedSentence = sentence.replace(emojiRegex, (match, p1, p2) => {
-        const emojiKey = `${p1.codePointAt(0).toString(16).toUpperCase()}${p2 || ''}`;
-        return data[emojiKey] || match;
-    });
+export function processSentence(sentence) {
+    let result = '';
+    let i = 0;
 
-    return replacedSentence;
-} */ 
+    while (i < sentence.length) {
+        const char = sentence[i];        
+        const codePoint = char.codePointAt(0);        
+        if(getEmojiMeaning(char)!="Emoji not found"){
+            
+
+            if(result[result.length-1]===" "){
+                result+=getEmojiMeaning(char);
+            }
+            else{
+
+                result += " "+getEmojiMeaning(char);
+            }
+            i+=2 ;
+            continue;
+        }        
+        if (codePoint >= 0xd800 && codePoint <= 0xdbff && i + 1 < sentence.length) {
+            const nextChar = sentence[i + 1];
+            const nextCodePoint = nextChar.codePointAt(0);            
+                        
+            if (nextCodePoint >= 0xdc00 && nextCodePoint <= 0xdfff) {
+                
+                const surrogatePair = char + nextChar;                
+                const emojiMeaning = getEmojiMeaning(surrogatePair);
+                
+
+                if(result[result.length-1]===" "){
+                    result+=emojiMeaning;
+                }
+                else{
+
+                    result += " "+emojiMeaning;
+                }                
+                i += 2;
+                continue;
+            }
+            else {
+                
+            }
+        }
+        
+                result += char;
+                            
+        i++;
+    }
+
+    return result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -21,6 +21,7 @@ npm i emoji-describer
 import { getEmojiMeaning } from "emoji-describer";
 import { hasEmoji } from "emoji-describer";
 import { extractEmojis } from "emoji-describer";
+import { processSentence } from "emoji-describer";
 
 console.log(getEmojiMeaning("💎"))
 console.log(getEmojiMeaning("👍"))
@@ -30,12 +31,17 @@ console.log(hasEmoji("❤️Nature is very beautiful💚🩵"))
 
 console.log(extractEmojis("Lorem 🦁🐹 ipsum 🐓🐳 🤗 lorem 🤣🤲🙌"))
 
+console.log(processSentence(" I'm determined to succeed! 📚💯"))
+
+
+
 //Outputs
 //gem stone
 //thumbs up
 //thumbs up
 //true
 //[ '🦁', '🐹', '🐓','🐳', '🤗', '🤣','🤲', '🙌']
+//I'm determined to succeed! BOOKS HUNDRED POINTS SYMBOL
 ```
 
 

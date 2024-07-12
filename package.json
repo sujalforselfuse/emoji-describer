@@ -1,6 +1,6 @@
 {
   "name": "emoji-describer",
-  "version": "1.2.2",
+  "version": "1.3.2",
   "description": "An npm package to convert emojis into textual description",
   "main": "index.js",
   "type": "module",
@@ -14,7 +14,15 @@
   "keywords": [
     "npm",
     "emoji-to-text",
-    "emoji-meaning"
+    "emoji-meaning",
+    "emoji-describer",
+    "emoji-to-description",
+    "emoji-description",
+    "emoji-text",
+    "emoji-meanings",    
+    "emoji-translation",
+    "emoji-translator"
+
   ],
   "author": "sujal chandrakar",
   "license": "Apache-2.0",

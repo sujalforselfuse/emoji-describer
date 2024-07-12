@@ -16074,7 +16074,7 @@ export default [
         "has_img_facebook": true
     },
     {
-        "name": "EMOJI MODIFIER FITZPATRICK TYPE-3",
+        "name": "",
         "unified": "1F3FC",
         "non_qualified": null,
         "docomo": null,
@@ -16100,7 +16100,7 @@ export default [
         "has_img_facebook": true
     },
     {
-        "name": "EMOJI MODIFIER FITZPATRICK TYPE-4",
+        "name": "",
         "unified": "1F3FD",
         "non_qualified": null,
         "docomo": null,
@@ -16126,7 +16126,7 @@ export default [
         "has_img_facebook": true
     },
     {
-        "name": "EMOJI MODIFIER FITZPATRICK TYPE-5",
+        "name": "",
         "unified": "1F3FE",
         "non_qualified": null,
         "docomo": null,
@@ -16151,8 +16151,9 @@ export default [
         "has_img_twitter": true,
         "has_img_facebook": true
     },
+    //changes
     {
-        "name": "EMOJI MODIFIER FITZPATRICK TYPE-6",
+        "name": "",
         "unified": "1F3FF",
         "non_qualified": null,
         "docomo": null,
